@@ -9,11 +9,13 @@ describe("My First Puppeteer Test", () => {
     });
     const page = await browser.newPage();
     await page.goto("http://example.com/");
-    await page.waitForTimeout(3000); // wait for 3 seconds
-    await page.waitForSelector('h1') // wait for the page to load the element before continuing with the test code below
-    await page.reload(); // reload the page
-    await page.waitForTimeout(3000); // wait for 3 seconds
-    await page.waitForSelector('h1') // wait for the page to load the element before continuing with the test code below
+    await page.waitForSelector("h1"); // waits until the "h1" selector is rendered
+    await page.goto("https://dev.to/");
+    await page.waitForSelector("#topbar"); // waits until the "#topbar" selector is rendered (# means its an id)
+    await page.goBack(); // goes back to example.com
+    await page.waitForSelector("h1");
+    await page.goForward(); // goes forward to dev.to
+    await page.waitForSelector("#topbar");
     await browser.close();
   });
 });
