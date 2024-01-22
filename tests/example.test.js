@@ -4,6 +4,8 @@ describe("My First Puppeteer Test", () => {
   it("should launch the browser", async () => {
     const browser = await puppeteer.launch({
       headless: false,
+        slowMo: 50, // slow down by 50ms
+        devtools: false // it will not open dev tools
     });
     const page = await browser.newPage();
     await page.goto("http://example.com/");
