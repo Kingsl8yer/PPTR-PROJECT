@@ -11,6 +11,9 @@ describe("My First Puppeteer Test", () => {
     await page.goto("http://example.com/");
     await page.waitForTimeout(3000); // wait for 3 seconds
     await page.waitForSelector('h1') // wait for the page to load the element before continuing with the test code below
+    await page.reload(); // reload the page
+    await page.waitForTimeout(3000); // wait for 3 seconds
+    await page.waitForSelector('h1') // wait for the page to load the element before continuing with the test code below
     await browser.close();
   });
 });
