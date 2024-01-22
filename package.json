@@ -1,0 +1,17 @@
+{
+  "name": "pptr-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha.js --timeout=30000 ./tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^5.0.0",
+    "mocha": "^10.2.0",
+    "puppeteer": "^21.7.0"
+  }
+}
