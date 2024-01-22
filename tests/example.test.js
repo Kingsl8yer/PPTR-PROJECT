@@ -8,14 +8,9 @@ describe("My First Puppeteer Test", () => {
         devtools: false // it will not open dev tools
     });
     const page = await browser.newPage();
-    await page.goto("http://example.com/");
-    await page.waitForSelector("h1"); // waits until the "h1" selector is rendered
-    await page.goto("https://dev.to/");
-    await page.waitForSelector("#topbar"); // waits until the "#topbar" selector is rendered (# means its an id)
-    await page.goBack(); // goes back to example.com
-    await page.waitForSelector("h1");
-    await page.goForward(); // goes forward to dev.to
-    await page.waitForSelector("#topbar");
+    await page.goto("https://devexpress.github.io/testcafe/example");
+    await page.type("#developer-name", "Mike", { delay: 0 }); // delay 0ms
+    await page.waitForTimeout(3000);
     await browser.close();
   });
 });
