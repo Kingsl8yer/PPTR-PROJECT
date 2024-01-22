@@ -11,8 +11,8 @@ describe("My First Puppeteer Test", () => {
     await page.goto("https://example.com/");
     const title = await page.title(); // get title of the page
     const url = await page.url(); // get url of the page
-    console.log("Title: " + title);
-    console.log("URL: " + url);
+    const text = await page.$eval("h1", (element) => element.textContent); // get text of the page by using selector h1
+    console.log("Text in the H1: " + text);
     await browser.close();
   });
 });
