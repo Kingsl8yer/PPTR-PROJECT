@@ -4,7 +4,7 @@ import { expect } from "chai";
 describe("My First Puppeteer Test", () => {
   it("should launch the browser", async () => {
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false, // it will open the browser
       slowMo: 50, // slow down by 50ms
       devtools: false, // it will not open dev tools
     });
@@ -18,6 +18,12 @@ describe("My First Puppeteer Test", () => {
     expect(url).to.include("example.com");
     expect(text).to.be.a("string", "Example Domain");
     expect(count).to.equal(2);
+
+    await page.goto("http://zero.webappsecurity.com/index.html");
+    await page.waitForSelector("#searchTerm");
+    await page.type("#searchTerm", "Hello World");
+    await page.keyboard.press("Enter", { delay: 10 }); // press enter key with 10ms delay to type the text
+    await page.waitForTimeout(5000); // wait for 5 seconds
     await browser.close();
   });
 });
